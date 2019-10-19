@@ -1,0 +1,31 @@
+(1) 将数据集从VOC格式转换到COCO格式，采用文件夹 Exchange中的脚本：首先，采用 renameData.py对xml和
+jpg文件进行统一命名; 接着将数据集切分为train/val/test数据集; 最后对每个子文件夹例如train文件夹中的xml文件采用函数 convertJson.py进行json格式的转换;
+(2) 将数据集文件夹进行整理，其最终的目录形式为：
+data/
+   自己的数据集名称/
+           annotations/
+		instances_test.json
+		instances_train.json
+		instances_val.json
+           images/
+		test/
+		    ....
+		train/
+		    ....
+		val/
+		    ....
+
+(3) 修改训练数据集，更改 config.py，以及 ./config/CenterNet-X.json 中的设置。
+
+
+(4)./test文件夹仿照 coco.py 编写自己的脚本。
+
+
+(5) 训练： sh CenterNet-train.sh
+
+(6) 测试： sh CenterNet-test.sh
+
+部分操作细节请参考：  
+（1）https://blog.csdn.net/watermelon1123/article/details/88990392
+
+（2）https://github.com/FenHua/CenterNet
